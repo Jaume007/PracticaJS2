@@ -224,8 +224,26 @@ function buscarCat(cat) {
     });
 }
 function buscarLoc(loc) {
+    var res=[];
     users.forEach(function (user) {
-        if (user.loc==loc) return user;
-        else return "sin resultados";
+        if (user.loc==loc) res.push(user);
     });
+    if (res.length>0) return res;
+    else return "sin resultados";
+}
+function displayUsers(array){
+    var res="";
+    array.forEach(function (user) {
+        res+="<tr>";
+        res+="<td>"+user.id+"</td>";
+        res+="<td>"+user.dni+"</td>";
+        res+="<td>"+user.nombre+"</td>";
+        res+="<td>"+user.apellidos+"</td>";
+        res+="<td>"+user.nac+"</td>";
+        res+="<td>"+user.loc+"</td>";
+        res+="<td>"+user.cat+"</td></tr>";
+
+
+    });
+    document.getElementsById("tuser").innerHTML=res;
 }
