@@ -62,9 +62,13 @@ function calculaFCM(){
         document.getElementById("fcmres").style.display = "block";
     }
 }
-function calculaCAT(edat1){
-    if(edat!=null){ var edat=edat1}else{
-    var edat=2016-document.getElementById("any").value;}
+function calculaCAT(){
+    var edat=2017-document.getElementById("any").value;
+    var resultat=categoria(edat);
+    document.getElementById("catres1").innerHTML = "Categoria: "+resultat;
+    document.getElementById("catres").style.display = "block";
+}
+function categoria(edat){
     var resultat;
     if (edat>0 & edat<117) {
         switch (true) {
@@ -84,10 +88,7 @@ function calculaCAT(edat1){
                 resultat = "Yoda";
                 break;
         }
-        if (edat1!=null){return resultat;}else{
-        document.getElementById("catres1").innerHTML = "Categoria: "+resultat;
-        document.getElementById("catres").style.display = "block";}
-
+        return resultat;
     }
 }
 function calculaHOR(){
@@ -194,7 +195,7 @@ function User(id,dni,nombre,apellidos,nac,loc){
     this.apellidos=apellidos;
     this.nac=nac;
     this.loc=loc;
-    this.cat=calculaCAT(2017-nac);
+    this.cat=categoria((2017-+nac));
 }
 User.prototype.alta=function(){
     users.push(this);
@@ -245,5 +246,13 @@ function displayUsers(array){
 
 
     });
-    document.getElementsById("tuser").innerHTML=res;
+    document.getElementById("tusers").innerHTML=res;
+
+}
+function introUser(){
+    var string=prompt("Introduce un nuevo usuario con el siguiente formato:\n" +
+        "id,dni,nombre,apellidos,añoNacimiento,localidad");
+    string=string.split(",");
+    users.push(new User(string[0],string[1],string[2],string[3],string[4],string[5],string[6]));
+    displayUsers(users);
 }

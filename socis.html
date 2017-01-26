@@ -6,8 +6,9 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <script type="text/javascript" src="imc.js"></script>
 </head>
-<body>
+<body onload="displayUsers(users);">
 
 <header>
     <nav>
@@ -47,6 +48,9 @@
         <tbody id="tusers">
         </tbody>
     </table>
+    <div>
+        <button onclick="introUser();">Nou usuari</button>
+    </div>
 </div>
 <footer class="page-footer blue darken-1">
     <div class="container">
