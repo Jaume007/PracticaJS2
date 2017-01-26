@@ -8,7 +8,7 @@
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     <script type="text/javascript" src="imc.js"></script>
 </head>
-<body onload="displayUsers(users);">
+<body onload="defaultUsers();displayUsers(users);">
 
 <header>
     <nav>
@@ -48,7 +48,7 @@
         <tbody id="tusers">
         </tbody>
     </table>
-    <div>
+    <div class="row" style="padding-top: 30px;">
         <button onclick="introUser();">Nou usuari</button>
     </div>
 </div>

@@ -256,3 +256,8 @@ function introUser(){
     users.push(new User(string[0],string[1],string[2],string[3],string[4],string[5],string[6]));
     displayUsers(users);
 }
+function defaultUsers(){
+    users.push(new User(1,222,"Mengano","Fulano","1991","mao"));
+    users.push(new User(2,333,"Paco","Porras","1981","mao"));
+    users.push(new User(3,444,"ElTio","La Vara","1999","mao"));
+}
