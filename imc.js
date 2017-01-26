@@ -62,8 +62,9 @@ function calculaFCM(){
         document.getElementById("fcmres").style.display = "block";
     }
 }
-function calculaCAT(){
-    var edat=2016-document.getElementById("any").value;
+function calculaCAT(edat1){
+    if(edat!=null){ var edat=edat1}else{
+    var edat=2016-document.getElementById("any").value;}
     var resultat;
     if (edat>0 & edat<117) {
         switch (true) {
@@ -83,8 +84,10 @@ function calculaCAT(){
                 resultat = "Yoda";
                 break;
         }
+        if (edat1!=null){return resultat;}else{
         document.getElementById("catres1").innerHTML = "Categoria: "+resultat;
-        document.getElementById("catres").style.display = "block";
+        document.getElementById("catres").style.display = "block";}
+
     }
 }
 function calculaHOR(){
@@ -182,4 +185,47 @@ function noEspecial(pwd) {
     }
     return false;
 
+}
+var users=[];
+function User(id,dni,nombre,apellidos,nac,loc){
+    this.id=id;
+    this.dni=dni;
+    this.nombre=nombre;
+    this.apellidos=apellidos;
+    this.nac=nac;
+    this.loc=loc;
+    this.cat=calculaCAT(2017-nac);
+}
+User.prototype.alta=function(){
+    users.push(this);
+};
+function buscarId(id){
+    users.forEach(function (user) {
+        if (user.id==id) return user;
+        else return "sin resultados";
+    });
+}
+function buscarDNI(dni){
+    users.forEach(function (user) {
+        if (user.dni==dni) return user;
+        else return "sin resultados";
+    });
+}
+function buscarNom(nombreC){
+    users.forEach(function (user) {
+        if ((user.nombre+" "+user.apellidos)==nombreC) return user;
+        else return "sin resultados";
+    });
+}
+function buscarCat(cat) {
+    users.forEach(function (user) {
+        if (user.cat==cat) return user;
+        else return "sin resultados";
+    });
+}
+function buscarLoc(loc) {
+    users.forEach(function (user) {
+        if (user.loc==loc) return user;
+        else return "sin resultados";
+    });
 }
