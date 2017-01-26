@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+
+</head>
+<body onload="calendari()">
+
+<header>
+    <nav class="nav-extended">
+        <div class="nav-wrapper blue darken-1">
+
+            <a href="index.html" class="brand-logo center"><img src="img/logo.png" alt="logo" style="height: 64px"/></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="utilitats.html">Utilitats</a></li>
+            </ul>
+            <ul class="tabs tabs-fixed-width tabs-transparent">
+                <li class="tab" onclick="mostra('IMC')"><a class="active" href="#test1">Calculadora IMC</a></li>
+                <li class="tab" onclick="mostra('FCM')"><a>Calculadora FCM</a></li>
+                <li class="tab" onclick="mostra('CAT')"><a>Calculadora de Categoria</a></li>
+                <li class="tab" onclick="mostra('HOR');calculaHOR()"><a>Horarios</a></li>
+                <li class="tab" onclick="mostra('PWD')"><a>Comprovador Password</a></li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main>
+
+    <div class="row" style="padding-top: 10px">
+        <div class="col s1 offset-s1">
+            <div class="z-depth-3">
+                <div class="blue lighten-3 valign-wrapper" style="height: 30px">
+                    <h5 class="valign center-block" id="Cany"></h5>
+
+                </div>
+                <div class="blue darken-1 valign-wrapper" style="height: 60px">
+                    <h4 class="valign center-block" id="Cdia"></h4>
+                </div>
+                <div class="blue lighten-3 valign-wrapper" style="height: 30px">
+                    <h5 class="valign center-block" id="Cmes"></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="default" class="container col s12" style="border-bottom: 1px solid black">
+        <h2 class="center-align">Pagina de Utilitats</h2>
+        <br/>
+        <p class="center-align">Disposem de diverses utilitats a questa pagina a les quals podeu accedir desde els
+            enllaços a la part superior</p>
+        <br/>
+    </div>
+    <div id="IMC" class="container" style="display:block">
+        <br/>
+        <h4 class="center-align">Calculadora de IMC</h4>
+        <div class="row col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="altura" type="number" class="validate" min="100" max="260">
+                    <label for="altura" data-error="altura incorrecte" data-success="Correcte">Alçada en cm</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="peso" type="number" class="validate" min="20" max="350">
+                    <label for="peso" data-error="Incorrecte" data-success="Correcte">Pes en KG</label>
+                    <br/>
+                    <br/>
+                </div>
+
+                <div class="center-align">
+
+                    <button class="btn waves-effect waves-light" type="submit" name="action" onclick="calculaIMC()">
+                        Calcula
+
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="container col s12" id="imcres" style="display:none ">
+            <h4 class="center-align">Resultats</h4>
+            <h5 id="imc1">IMC</h5>
+            <p>Escala de IMC</p>
+            <ul class="browser-default">
+                <li id="escala1"><16.00 Infrapes (delgadesa severa)</li>
+                <li id="escala2">16.00-16.99 Infrapes (delgadesa moderada)</li>
+                <li id="escala3">17.00-18.49 Infrapes (delgadesa aceptable</li>
+                <li id="escala4">18.50-24.99 Pes normal</li>
+                <li id="escala5">25.00-29.99 Sobrepes</li>
+                <li id="escala6">30.00-34.99 Obes (tipus I)</li>
+                <li id="escala7">35.00-40.00 Obes (tipus II)</li>
+                <li id="escala8">>40.00 Obes (tipus III)</li>
+            </ul>
+        </div>
+    </div>
+    <div id="FCM" class="container" style="display:none ">
+        <br/>
+        <h4 class="center-align">Calculadora de FCM</h4>
+        <div class="row col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="edad" type="number" class="validate" min="5" max="120">
+                    <label for="edad" data-error="incorrecte" data-success="Correcte">Edat</label>
+                </div>
+
+                <div class="input-field col s6">
+                    <select id="sexe">
+                        <option value="" disabled selected>Selecciona</option>
+                        <option value="H">Home</option>
+                        <option value="M">Dona</option>
+
+                    </select>
+                    <label>Sexe</label>
+                </div>
+
+                <div class="center-align">
+
+                    <button class="btn waves-effect waves-light" type="submit" name="action" onclick="calculaFCM()">
+                        Calcula
+
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="container col s12" id="fcmres" style="display:none ">
+            <h4 class="center-align">Resultats</h4>
+            <h5>Escala de FCM</h5>
+            <ul class="browser-default">
+                <li id="zona1"></li>
+                <li id="zona2"></li>
+                <li id="zona3"></li>
+                <li id="zona4"></li>
+            </ul>
+        </div>
+    </div>
+    <div id="CAT" class="container" style="display:none ">
+        <br/>
+        <h4 class="center-align">Calculadora de FCM</h4>
+        <div class="row col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="any" type="number" class="validate" min="1900" max="2016">
+                    <label for="any" data-error="incorrecte" data-success="Correcte">Any de Naixement</label>
+                </div>
+
+                <div class="center-align">
+
+                    <button class="btn waves-effect waves-light" type="submit" name="action" onclick="calculaCAT()">
+                        Calcula
+
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="container col s12" id="catres" style="display:none ">
+            <h4 class="center-align">Resultats</h4>
+            <h5 class="center-align" id="catres1">Categoria</h5>
+        </div>
+    </div>
+    <div id="HOR" class="container col s12" style="display:none ">
+
+    </div>
+    <div id="PWD" class="container" style="display:none">
+        <br/>
+        <h4 class="center-align">Comprovador de Contrasenyes</h4>
+        <div class="row col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="contrasenya" type="text" class="validate">
+                    <label for="contrasenya" data-error="altura incorrecte" data-success="Correcte">Contrasenya</label>
+                </div>
+
+                <div class="center-align">
+
+                    <button class="btn waves-effect waves-light" type="submit" name="action" onclick="comprovaPWD()">
+                        Comprova
+
+                    </button>
+                </div>
+                <div class="center-align" id="resultat" style="display: none">
+
+                </div>
+            </div>
+        </div>
+
+</main>
+
+<footer class="page-footer blue darken-1">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Slope Soaring Menorca</h5>
+                <p class="grey-text text-lighten-4">El teu club de ladera</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="index.html">Home</a></li>
+                    <li><a class="grey-text text-lighten-3" href="utilitats.html">Utilitats</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2016 Jaume Pons
+            <div class="right"><a class="waves-effect blue lighten-3 btn" href="#legal">Avis Legal</a> </div>
+        </div>
+    </div>
+</footer>
+<div id="legal" class="modal">
+    <div class="modal-content">
+        <h4 class="center">Avis Legal</h4>
+        <p class="center">Al utilizar aquesta pagina accepta cedir la seua anima al propietari durant els seguents 2 segons</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+    </div>
+</div>
+
+<!--imports-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="imc.js"></script>
+<script> $(document).ready(function () {
+    $('.parallax').parallax();
+});</script>
+<script>$(document).ready(function () {
+    $('select').material_select();
+});</script>
+<script>
+    $(document).ready(function(){
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal').modal();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+</head>
+<body  onload="var timer=setTimeout(function() {$('#bienvenida').modal('open');},3000);">
+
+<header>
+    <nav>
+        <div class="nav-wrapper blue darken-1">
+            <!--<ul id="utilitatdrop" class="dropdown-content">-->
+                <!--<li><a href="meh">IMC</a></li>-->
+                <!--<li><a href="meh">FCM</a></li>-->
+                <!--<li><a href="meh">Categoria</a></li>-->
+                <!--<li><a href="meh">Horari</a></li>-->
+            <!--</ul>-->
+            <a href="index.html" class="brand-logo center"><img src="img/logo.png" alt="logo" style="height: 64px"/></a>
+            <ul class="right hide-on-med-and-down" >
+                <li><a href="index.html">Home</a> </li>
+                <li><a href="utilitats.html">Utilitats</a> </li>
+                <!--<li><a class="dropdown-button" href="#!" data-activates="utilitatdrop">HOME</a> </li>-->
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <div class="section">
+
+        <div class="row">
+            <div class="col s12 center">
+                <h3><i class="mdi-content-send brown-text"></i></h3>
+                <h4>Slope Soaring Menorca</h4>
+                <p class="center-align light">El club de avions de ladera de Menorca</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+    <div class="parallax-container">
+
+        <div class="parallax"><img src="img/mig.jpeg" alt="Unsplashed background img 1"/></div>
+    </div>
+    <div class="container">
+        <div class="section">
+
+            <div class="row">
+                <div class="col s12 center">
+                    <h3><i class="mdi-content-send brown-text"></i></h3>
+
+                    <p class="center-align light">Slope Soaring Menorca es el club per a tots els aeromodelistes aficionats als avions de ladera. Al nostre club tenim tant avions amb motor com veleros. Si vols apendre a construit el teu propi avio o a volar nomes amb la força del vent contacta amb nosaltres.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<div class="parallax-container">
+
+    <div class="parallax"><img src="img/avio.jpeg" alt="Unsplashed background img 1"/></div>
+</div>
+
+<footer class="page-footer blue darken-1">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Slope Soaring Menorca</h5>
+                <p class="grey-text text-lighten-4">El teu club de ladera</p>
+
+            </div>
+            <div class="col l4 offset-l2 s12">
+
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="index.html">Home</a></li>
+                    <li><a class="grey-text text-lighten-3" href="utilitats.html">Utilitats</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2016 Jaume Pons
+            <div class="right"><a class="waves-effect blue lighten-3 btn" href="#legal">Avis legal</a> </div>
+        </div>
+
+    </div>
+
+
+</footer>
+<div id="legal" class="modal">
+    <div class="modal-content">
+        <h4 class="center">Avis Legal</h4>
+        <p class="center">Al utilizar aquesta pagina accepta cedir la seua anima al propietari durant els seguents 2 segons</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+    </div>
+</div>
+<div id="bienvenida" class="modal">
+    <div class="modal-content">
+        <h4 class="center">Benvingut</h4>
+        <p class="center">A aquesta pagina trobaras informacio inutil pero unes utilitats que talvegada seran utils...</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Tancar</a>
+    </div>
+</div>
+
+
+
+<!--imports-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script> $(document).ready(function(){
+    $('.parallax').parallax();
+});</script>
+<script>
+    $(document).ready(function(){
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal').modal();
+    });
+</script>
+</body>
+</html>
