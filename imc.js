@@ -84,7 +84,7 @@ function categoria(edat){
             case(edat < 65):
                 resultat = "Jedi";
                 break;
-            case (edat > 65):
+            case (edat >= 65):
                 resultat = "Yoda";
                 break;
         }
@@ -200,37 +200,37 @@ function User(id,dni,nombre,apellidos,nac,loc){
 User.prototype.alta=function(){
     users.push(this);
 };
-function buscarId(id){
-    users.forEach(function (user) {
-        if (user.id==id) return user;
-        else return "sin resultados";
-    });
-}
+User.prototype.setLoc=function (loc) {
+    this.loc=loc;
+
+};
 function buscarDNI(dni){
+    var res;
     users.forEach(function (user) {
-        if (user.dni==dni) return user;
-        else return "sin resultados";
+        if (user.dni==dni) res=user;
     });
+    return res;
 }
 function buscarNom(nombreC){
+    var res;
     users.forEach(function (user) {
-        if ((user.nombre+" "+user.apellidos)==nombreC) return user;
-        else return "sin resultados";
+        if ((user.nombre+" "+user.apellidos).toLowerCase()==nombreC.toLowerCase()) res=user;
     });
+    return res;
 }
 function buscarCat(cat) {
+    var res=[];
     users.forEach(function (user) {
-        if (user.cat==cat) return user;
-        else return "sin resultados";
+        if (user.cat==cat) res.push(user);
     });
+    displayUsers(res);
 }
 function buscarLoc(loc) {
     var res=[];
     users.forEach(function (user) {
         if (user.loc==loc) res.push(user);
     });
-    if (res.length>0) return res;
-    else return "sin resultados";
+    displayUsers(res);
 }
 function displayUsers(array){
     var res="";
@@ -258,6 +258,24 @@ function introUser(){
 }
 function defaultUsers(){
     users.push(new User(1,222,"Mengano","Fulano","1991","mao"));
-    users.push(new User(2,333,"Paco","Porras","1981","mao"));
-    users.push(new User(3,444,"ElTio","La Vara","1999","mao"));
+    users.push(new User(2,333,"Paco","Porras","1981","lo"));
+    users.push(new User(3,444,"ElTio","La Vara","1918","mao"));
+}
+function bajaUser(num){
+    users.forEach(function (user,i) {
+       if(user.id==num || user.dni==num) {
+           users.splice(i,1);
+       }
+    });
+
+}
+function actualizarLoc(){
+    var id=parseInt(prompt("Introduce la id del usuario"));
+    var loc=prompt("introduce la localidad");
+    users.forEach(function (user) {
+        if(user.id==id){user.setLoc(loc);
+        return 1;
+        }
+    });
+    return 0;
 }

@@ -50,6 +50,29 @@
     </table>
     <div class="row" style="padding-top: 30px;">
         <button onclick="introUser();">Nou usuari</button>
+        <button style="border-left: 100px" onclick="displayUsers(users);">Mostrar usuaris</button>
+    </div>
+    <div class="row" style="padding-top: 30px;">
+        <button onclick="var num=parseInt(prompt('Introduce id o dni'));bajaUser(num);displayUsers(users);">Baixa Usuari</button>
+    </div>
+    <div class="row" style="padding-top: 30px;">
+        <button onclick="actualizarLoc();displayUsers(users);">Actualitza Localitzacio</button>
+    </div>
+    <div class="row" style="padding-top: 30px;">
+        <input type="text" id="busca" placeholder="Introdueix dni"/>
+        <button onclick="var busca=[buscarDNI(document.getElementById('busca').value)];displayUsers(busca);">Cerca per dni</button>
+    </div>
+    <div class="row" style="padding-top: 30px;">
+        <input type="text" id="nom" placeholder="Introdueix nom"/>
+        <button onclick="displayUsers([buscarNom(document.getElementById('nom').value)]);">Cerca per nom</button>
+    </div>
+    <div class="row" style="padding-top: 30px;">
+        <input type="text" id="categoria" placeholder="Introdueix Categoria"/>
+        <button onclick="buscarCat(document.getElementById('categoria').value);">Cerca per categoria</button>
+    </div>
+    <div class="row" style="padding-top: 30px;">
+        <input type="text" id="localidad" placeholder="Introdueix Localitat"/>
+        <button onclick="buscarLoc(document.getElementById('localidad').value);">Cerca per localitat</button>
     </div>
 </div>
 <footer class="page-footer blue darken-1">
